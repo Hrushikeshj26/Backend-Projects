@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/mongodb/public/stylesheets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="w-full h-screen bg-zinc-900 p-10 text-white">
+        <div class="nav mb-10 text-blue-500"> 
+            <a href="/">Back to Home</a>
+        </div>
+        <h1 class="text-3xl tracking-tighter mb-3">All User</h1>
+        <div class="flex gap-3 flex-wrap">
+            <% if(user.length > 0){ %>
+                <% user.forEach(function(user){ %>
+                    <div class="user w-72 p-4 bg-zinc-800 rounded-xl">
+                        <div class="w-full h-72 rounded-xl bg-blue-200">
+                            <img class="w-full h-full object-cover rounded-lg" src="<%= user.image %>" alt="image">
+                        </div>
+                        <h3 class="text-xl mt-3 tracking-tighter"><%= user.name %></h3>
+                        <h5 class="text-zinc-500"><%= user.email %></h5>
+                        <div class="flex gap-8 mt-10">
+                            <a class="text-yellow-500" href="">Edit User</a>
+                            <a class="text-red-500" href=" /delete/<%= user._id%>">Delete User</a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% }else{ %>
+                <h1 class="text-xl text-zinc-600 mt-5">No User Yet!!!</h1>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

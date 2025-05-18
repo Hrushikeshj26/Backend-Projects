@@ -25,7 +25,7 @@
                         <h5 class="text-zinc-100"><%= user.contactno %></h5>
                         <h5 class="text-zinc-100"><%= user.address %></h5>
                         <div class="flex gap-8 mt-10">
-                            <a class="text-yellow-500" href="">Edit User</a>
+                            <a class="text-yellow-500" href="/update/<%= user._id%>">Edit User</a>
                             <a class="text-red-500" href=" /delete/<%= user._id%>">Delete User</a>
                         </div>
                     </div>

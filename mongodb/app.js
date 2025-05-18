@@ -16,14 +16,18 @@ app.get('/', (req, res) => {
 app.get('/read', async (req, res) => {
     let user = await userModel.find()
     res.render("read", {user});
+    console.log(user);
+    
 });
 
 app.post('/create', async (req, res) => {
-    let {name, email, image} = req.body;
+    let {name, email, contactno, address, image} = req.body;
 
     let createdUser = await userModel.create({
         name,
         email,
+        contactno,
+        address,
         image
     })
 

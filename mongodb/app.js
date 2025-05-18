@@ -15,9 +15,7 @@ app.get('/', (req, res) => {
 
 app.get('/read', async (req, res) => {
     let user = await userModel.find()
-    res.render("read", {user});
-    console.log(user);
-    
+    res.render("read", {user});    
 });
 
 app.post('/create', async (req, res) => {

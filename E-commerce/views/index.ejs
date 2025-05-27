@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyShop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-900 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-gray-800 text-white shadow-md">
+      <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="text-2xl font-bold text-yellow-400">MyShop</div>
+        <div class="flex-1 mx-4">
+          <input
+            type="text"
+            placeholder="Search products..."
+            class="w-full p-2 rounded-md text-black"
+          />
+        </div>
+        <div class="space-x-4">
+          <button>Login</button>
+          <a href="/admin">Admin Page</a>
+          <button>Cart 🛒</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="bg-yellow-300 py-10 text-center">
+      <h2 class="text-3xl font-bold mb-2">Big Sale! Up to 50% OFF</h2>
+      <p>Shop your favorite items now</p>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="container mx-auto px-4 py-10">
+      <h2 class="text-2xl font-semibold mb-6">Featured Products</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Product Card -->
+
+        <% products.forEach(p => { %>
+            <div class="bg-white p-4 rounded-lg shadow hover:shadow-xl">
+                <img
+                src="<%= p.prdimg %>"
+                alt="Product"
+                class="w-full h-60 object-cover mb-4"
+                />
+                <h3 class="text-lg font-semibold"><%= p.prdname %></h3>
+                <p class="text-gray-600 "><%= p.prddecs %></p>
+                <p class="text-gray-600 font-bold ">$<%= p.prdprice %></p>
+                <button class="mt-2 w-full bg-yellow-400 text-black py-2 rounded hover:bg-yellow-500">
+                Add to Cart
+                </button>
+            </div>
+        <% }) %>
+        
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-10">
+      <div class="container mx-auto px-4 text-center">
+        © 2025 MyShop. All rights reserved.
+      </div>
+    </footer>
+
+  </body>
+</html>
